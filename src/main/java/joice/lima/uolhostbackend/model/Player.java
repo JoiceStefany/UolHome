@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import joice.lima.uolhostbackend.model.dtos.PlayerDto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +26,14 @@ public class Player {
     private String email;
     private String phoneNumber;
     private String codiname;
-    private GroupType grpupType;
+    private GroupType groupType;
+
+
+    public Player(PlayerDto dto){
+        this.name = dto.name();
+        this.email = dto.email();
+        this.phoneNumber = dto.phoneNumber();
+        this.groupType = dto.groupType();
+    }
 
 }
