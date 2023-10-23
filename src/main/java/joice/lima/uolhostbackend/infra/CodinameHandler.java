@@ -1,11 +1,11 @@
 package joice.lima.uolhostbackend.infra;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Component;
 
 import joice.lima.uolhostbackend.model.GroupType;
 import joice.lima.uolhostbackend.service.CodinameService;
+
 
 @Component
 public class CodinameHandler {
@@ -14,14 +14,13 @@ public class CodinameHandler {
     private CodinameService service;
 
     public String findCodiname(GroupType groupType) {
-        if (groupType == GroupType.AVANGERS){
-            String firsMatch = service.getAvangersCondinameList().stream().findFirst().orElseThrow();
-            this.service.getAvangersCondinameList().remove(firsMatch);
-            return firsMatch;
+        if(groupType == GroupType.AVANGERS){
+            String firstMatch = service.getAvangersCodinameList().stream().findFirst().orElseThrow();
+            this.service.getAvangersCodinameList().remove(firstMatch);
+            return firstMatch;
         }
-    String firsMatch = service.getJusticeLeagueList().stream().findFirst().orElseThrow();
-        this.service.getJusticeLeagueList().remove(firsMatch);
-        return firsMatch;
+        String firstMatch = service.getJusticeLeagueList().stream().findFirst().orElseThrow();
+        this.service.getJusticeLeagueList().remove(firstMatch);
+        return firstMatch;
     }
-
-    }
+}
