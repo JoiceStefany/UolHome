@@ -1,5 +1,7 @@
 package joice.lima.uolhostbackend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,8 @@ public class PlayerService {
     }
     private String getCodiname (GroupType groupType){
         return handler.findCodiname(groupType);
+    }
+    public List<Player> getAllPlayer(){
+        return repository.findAll();
     }
 }
